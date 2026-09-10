@@ -1,23 +1,22 @@
-
-
 interface DashboardProps {
+  address: string;
   temp: number;
-  setTemp: (fn: (t: number) => number) => void;
+  setTemp: (fn: (prev: number) => number) => void;
   heatingMode: string;
-  setHeatingMode: (mode: string) => void;
+  setHeatingMode: (val: string) => void;
   evMode: string;
-  setEvMode: (mode: string) => void;
+  setEvMode: (val: string) => void;
   showKeySafe: boolean;
   setShowKeySafe: (val: boolean) => void;
   setIsChatOpen: (val: boolean) => void;
 }
 
-export function Dashboard({ temp, setTemp, heatingMode, setHeatingMode, evMode, setEvMode, showKeySafe, setShowKeySafe, setIsChatOpen }: DashboardProps) {
+export function Dashboard({ address, temp, setTemp, heatingMode, setHeatingMode, evMode, setEvMode, showKeySafe, setShowKeySafe, setIsChatOpen }: DashboardProps) {
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900">Welcome to 12 Oak Drive</h1>
+          <h1 className="text-2xl font-bold text-slate-900">Welcome to {address}</h1>
           <p className="text-sm text-slate-500">Smart home handover instructions & telemetry status.</p>
         </div>
         <button 

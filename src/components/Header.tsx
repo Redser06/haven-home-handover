@@ -1,4 +1,4 @@
-export function Header({ messagesLength, setIsChatOpen }: { messagesLength: number, setIsChatOpen: (v: boolean) => void }) {
+export function Header({ address, messagesLength, setIsChatOpen }: { address: string, messagesLength: number, setIsChatOpen: (v: boolean) => void }) {
   return (
     <header className="bg-[#1E293B] text-white px-6 py-3.5 flex items-center justify-between shadow-md border-b border-slate-700">
       <div className="flex items-center gap-4">
@@ -9,7 +9,7 @@ export function Header({ messagesLength, setIsChatOpen }: { messagesLength: numb
           <span className="font-bold text-lg tracking-tight">HAVEN</span>
         </div>
         <div className="hidden sm:flex items-center gap-2 bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700 text-xs text-slate-300">
-          <span>📍 12 Oak Drive</span>
+          <span>📍 {address}</span>
           <span className="text-slate-500">•</span>
           <span className="text-emerald-400 font-medium">Handover Active</span>
         </div>

@@ -13,12 +13,14 @@ interface Message {
 }
 
 interface ChatWindowProps {
+  address: string;
+  token: string;
   messages: Message[];
   setMessages: (fn: (prev: Message[]) => Message[]) => void;
   setIsChatOpen: (val: boolean) => void;
 }
 
-export function ChatWindow({ messages, setMessages, setIsChatOpen }: ChatWindowProps) {
+export function ChatWindow({ address, token, messages, setMessages, setIsChatOpen }: ChatWindowProps) {
   const [inputText, setInputText] = useState('');
 
   const handleSendMessage = (textToSend?: string) => {
@@ -45,11 +47,11 @@ export function ChatWindow({ messages, setMessages, setIsChatOpen }: ChatWindowP
             <span className="bg-emerald-500/20 text-emerald-400 text-xs font-semibold px-3 py-1 rounded-full border border-emerald-500/30">
               🔒 Contact Details Protected
             </span>
-            <h2 className="font-bold text-base sm:text-lg">12 Oak Drive — Private Handover Chat</h2>
+            <h2 className="font-bold text-base sm:text-lg">{address} — Private Handover Chat</h2>
           </div>
           <div className="flex items-center gap-4">
             <span className="hidden sm:inline-block text-xs bg-slate-800 text-slate-300 px-3 py-1.5 rounded-lg font-mono border border-slate-700">
-              Passcode: HANDOVER-9823-OAK
+              Passcode: {token}
             </span>
             <button 
               onClick={() => setIsChatOpen(false)}
