@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -48,7 +48,7 @@ export default function App() {
   ]);
   const [inputText, setInputText] = useState('');
 
-  const handleSendMessage = (textToSend) => {
+  const handleSendMessage = (textToSend?: string) => {
     const text = textToSend || inputText;
     if (!text.trim()) return;
 
